@@ -14,8 +14,8 @@ pub struct Request<'a> {
 impl<'a> Request<'a> {
     pub(crate) fn new(
         method: Method,
-        url: &Url,
-        body: Option<&Bytes>,
+        url: &'a Url,
+        body: Option<&'a Bytes>,
         id: u32,
         timeout: u32,
     ) -> Self {

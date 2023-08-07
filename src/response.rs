@@ -7,7 +7,7 @@ pub struct Response<'a> {
 }
 
 impl<'a> Response<'a> {
-    pub fn new(request: &Request, response: RawResponse) -> Self {
+    pub fn new(request: &'a Request, response: RawResponse) -> Self {
         Self { request, response }
     }
 }
