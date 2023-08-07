@@ -73,8 +73,7 @@ impl Client {
         Ok(Response::new(req, response))
     }
 
-    pub async fn get<U: IntoUrl>(&mut self, url: U) -> Result<()> {
-        self.request(Method::GET, url, None, 0).await;
-        Ok(())
+    pub async fn get<U: IntoUrl>(&mut self, url: U) -> Result<Response> {
+        self.request(Method::GET, url, None, 0).await
     }
 }
