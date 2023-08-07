@@ -20,7 +20,7 @@ impl Default for Client {
         Self {
             user_agent: "Scutter".into(),
             client: RawClient::new(),
-            request_counter: AtomicU32::new(0),
+            request_counter: AtomicU32::new(1),
         }
     }
 }
