@@ -48,7 +48,7 @@ impl Client {
         let url = u.into_url()?;
 
         let id = self.increase_request_counter();
-        let req = Request::new(method.clone(), &url, None, id, timeout);
+        let req = Request::new(method.clone(), url.clone(), None, id, timeout);
         debug!("sending a request: id={} method={}", id, method);
 
         let mut rb = self
@@ -70,7 +70,7 @@ impl Client {
             response.content_length().unwrap_or(0)
         );
 
-        Ok(Response::new(&req, response))
+        Ok(Response::new(req, response))
     }
 
     pub async fn get<U: IntoUrl>(&mut self, url: U) -> Result<()> {
